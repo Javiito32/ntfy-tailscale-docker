@@ -1,5 +1,14 @@
 FROM debian
 
+LABEL org.opencontainers.image.authors="github.com/Javiito32"
+LABEL org.opencontainers.image.url="https://github.com/Javiito32/ntfy-tailscale-docker"
+LABEL org.opencontainers.image.documentation="https://github.com/Javiito32/ntfy-tailscale-docker"
+LABEL org.opencontainers.image.source="https://github.com/Javiito32/ntfy-tailscale-docker"
+LABEL org.opencontainers.image.vendor="Javiito32"
+LABEL org.opencontainers.image.licenses="AGPL-3.0-only"
+LABEL org.opencontainers.image.title="ntfy-tailscale"
+LABEL org.opencontainers.image.description="Ntfy integration with tailscale"
+
 ARG TARGETARCH
 
 # Update and upgrade
