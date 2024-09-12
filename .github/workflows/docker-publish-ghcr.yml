@@ -81,6 +81,17 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Analyze for critical and high CVEs
+        id: docker-scout-cves
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: docker/scout-action@v1
+        with:
+          command: cves
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          summary: true
+          write-comment: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
