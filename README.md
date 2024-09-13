@@ -48,7 +48,7 @@ services:
 #      - 443:443
 #      - 80:80
     healthcheck: # optional: remember to adapt the host:port to your environment
-        test: ["CMD-SHELL", "wget -q --no-check-certificate --tries=1 https://127.0.0.1:443/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
+        test: ["CMD-SHELL", "curl -s http://127.0.0.1/v1/health | grep -q '"healthy":true' || exit 1"]
         interval: 60s
         timeout: 10s
         retries: 3
