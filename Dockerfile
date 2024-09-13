@@ -11,8 +11,8 @@ LABEL org.opencontainers.image.description="Ntfy integration with tailscale"
 
 ARG TARGETARCH
 
-# Update and upgrade
-RUN apt update && apt upgrade -y
+# Update
+RUN apt update
 RUN apt install curl gnupg2 -y
 
 # Install ntfy
